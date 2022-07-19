@@ -95,6 +95,7 @@ contract CryptoDevsDAO {
 
     uint256 public numProposals;
     uint256 public totalVotingPower;
+    mapping(uint256 => bool) public tokenLockedUp;
     modifier memberOnly() {
         require(members[msg.sender].lockedUpNFTs.length > 0, "Not_A_Member");
         _;
@@ -178,7 +179,7 @@ contract CryptoDevsDAO {
     ) public override returns (bytes4) 
         {
             require(cryptoDevsNft.ownerOf(tokenId) == address(this), "MALICIOUS");
-            require(lockedUpNFTs[tokenId] == false, "ALREADY_USED");
+            require(tokenLockedUp[tokenId] == false, "ALREADY_USED");
             Member storage member = members[from];
 
             if(member.lockedUpNFTs.length == 0){

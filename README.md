@@ -11,3 +11,7 @@ The content is brought to you by LearnWeb3 DAO, a free developer-focused web3 ed
 [Discord](https://discord.gg/learnweb3dao)
 
 [Twitter](https://twitter.com/LearnWeb3DAO)
+
+install openzepplin packages.
+
+ npm i @openzeppelin/contracts

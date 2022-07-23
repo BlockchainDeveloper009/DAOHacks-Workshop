@@ -7,9 +7,11 @@ async function main() {
   // This function deploys all the contracts related to this workshop
 
   // Deploy the NFT contract
-  const cryptoDevsNftAddress = await deployCryptoDevsNFT();
+  const cryptoDevsNftAddress 
+  = await deployCryptoDevsNFT();
   console.log(
-    `Deployed CryptoDevsNFT contract at address: ${cryptoDevsNftAddress}`
+    `Deployed CryptoDevsNFT contract at address: 
+    ${cryptoDevsNftAddress}`
   );
 
   // Deploy the Fake NFT Marketplace contract
@@ -41,7 +43,7 @@ async function main() {
 
     // Verify Marketplace contract on Etherscan
     await run("verify:verify", {
-      address: fakeNftMarketplaceAddress,
+      address: 9,
       constructorArguments: [],
     });
 

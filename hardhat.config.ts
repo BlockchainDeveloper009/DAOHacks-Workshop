@@ -216,6 +216,10 @@ const config: HardhatUserConfig = {
         interval: 1000,
       },
     },
+    polygon_mumbai: {
+      url: "https://polygon-mumbai.g.alchemy.com/v2/QIBBvAA-2XRXi9CdUkLPJ3osuZkoYARM",
+      accounts: [`0xe62c67b5957d55905f510f374e16465d480287b5f87364f7f30330699e927648`]
+   },
   },
   gasReporter: {
     enabled: process.env.REPORT_GAS !== undefined,

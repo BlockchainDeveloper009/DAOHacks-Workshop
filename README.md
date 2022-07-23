@@ -15,3 +15,6 @@ The content is brought to you by LearnWeb3 DAO, a free developer-focused web3 ed
 install openzepplin packages.
 
  npm i @openzeppelin/contracts
+
+ npx hardhat compile
+ npx hardhat --networks ropsten

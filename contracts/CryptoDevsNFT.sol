@@ -17,8 +17,6 @@ contract CryptoDevsNFT is ERC721Enumerable, Ownable {
         MAX_NFTS = maxNfts;
     }
 
-
-
     function freeMint() public {
         require(tokenIdCounter < MAX_NFTS, "MAX_SUPPLY_REACHED");
         tokenIdCounter++;

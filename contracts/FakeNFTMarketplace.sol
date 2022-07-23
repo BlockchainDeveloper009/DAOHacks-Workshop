@@ -13,16 +13,16 @@ contract FakeNFTMarketplace {
     /// @dev purchase() accepts ETH and marks the owner of the given `tokenId` as the caller address
     /// @param _tokenId - the fake NFT token Id to purchase
     function purchase(uint256 _tokenId) external payable {
-        require(msg.value == nftPurchasePrice, "NOT_ENOUGH_ETH_SUPPLIED");
-        require(tokens[_tokenId] == address(0), "NOT_FOR_SALE");
+        require(msg.value == nftPurchasePrice, "MK_NOT_ENOUGH_ETH_SUPPLIED");
+        require(tokens[_tokenId] == address(0), "MK_NOT_FOR_SALE");
         tokens[_tokenId] = msg.sender;
     }
 
     /// @dev sell() pays the NFT owner `nftSalePrice` ETH and takes`tokenId` ownership back
     /// @param _tokenId the fake NFT token Id to sell back
     function sell(uint256 _tokenId) external {
-        require(tokens[_tokenId] == msg.sender, "INVALID_OWNER");
-        require(address(this).balance >= nftSalePrice, "NOT_ENOUGH_FUNDS");
+        require(tokens[_tokenId] == msg.sender, "MK_INVALID_OWNER");
+        require(address(this).balance >= nftSalePrice, "MK_NOT_ENOUGH_FUNDS");
         tokens[_tokenId] = address(0);
         payable(msg.sender).transfer(nftSalePrice);
     }
@@ -36,5 +36,11 @@ contract FakeNFTMarketplace {
             return true;
         }
         return false;
+    }
+
+    /// @dev ownerOf() returns the owner of a given tokenId - address(0) if not owned by anyone
+    /// @param _tokenId - the tokenId to check for
+    function ownerOf(uint256 _tokenId) external view returns (address) {
+        return tokens[_tokenId];
     }
 }

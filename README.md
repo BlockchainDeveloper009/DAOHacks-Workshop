@@ -18,3 +18,4 @@ install openzepplin packages.
 
  npx hardhat compile
  npx hardhat --networks ropsten
+ npx hardhat --network polygon_mumbai

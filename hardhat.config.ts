@@ -65,7 +65,7 @@ task("getETHBalance", "Get the ETH balance of your address").setAction(
     const signers = await hre.ethers.getSigners();
     const mySigner = signers[0];
     const balance = await mySigner.getBalance();
-
+    console.log(`signerwithAddress: '${mySigner}'`);
     console.log(balance.toString());
     console.log(
       `You currently have ${hre.ethers.utils.formatUnits(balance, "ether")} ETH`
